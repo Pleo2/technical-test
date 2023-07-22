@@ -1,3 +1,7 @@
 {
-  "conventionalCommits.scopes": ["new directories", "HeaderComponent"]
+  "conventionalCommits.scopes": [
+    "new directories",
+    "HeaderComponent",
+    "react-force-graph-2d"
+  ]
 }

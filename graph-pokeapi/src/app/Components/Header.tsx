@@ -84,6 +84,7 @@ export default function Header(): JSX.Element {
               ))}
             </Menu>
           </Box>
+          
           <Typography
             variant="h5"
             noWrap
@@ -102,6 +103,7 @@ export default function Header(): JSX.Element {
           >
             Graph-Pokemon
           </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map(page => (
               <Button
@@ -130,7 +132,8 @@ export default function Header(): JSX.Element {
               }}
               open={Boolean(state.anchorElUser)}
               onClose={fnHandler.handleCloseUserMenu}
-            ></Menu>
+            >
+            </Menu>
           </Box>
         </Toolbar>
       </Container>
