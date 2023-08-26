@@ -1,0 +1,16 @@
+export const typesPokemon = [
+  'Fuego',
+  'Planta',
+  'Agua',
+  'Volador',
+  'Fantasma',
+  'Normal',
+  'Psíquico',
+  'Tierra',
+  'Roca',
+  'Dragón',
+  'Eléctrico',
+  'Bicho',
+  'Lucha',
+  'Veneno',
+]
