@@ -3,4 +3,4 @@ export type PokeState = {
     name: string
     img: string
     type: string
-  }
+}

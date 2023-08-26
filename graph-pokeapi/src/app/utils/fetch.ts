@@ -23,7 +23,7 @@ export const fetchPoke = async (): Promise<PokeState[] | undefined>  => {
     }
   }
   catch(err){
-    console.error(err)
+    console.log(err)
   }
   return 
 }

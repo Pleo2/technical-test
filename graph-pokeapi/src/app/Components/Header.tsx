@@ -11,10 +11,10 @@ import Container from '@mui/material/Container'
 import Button from '@mui/material/Button'
 import MenuItem from '@mui/material/MenuItem'
 import useHandlerAnchor from '../hooks/useHandlerAnchor'
+import Link from 'next/link'
+
 
 const pages = ['NAME-2D', '3D-NAME', '3D-POKEMON']
-
-
 
 export default function Header(): JSX.Element {
   const {
@@ -123,7 +123,7 @@ export default function Header(): JSX.Element {
                   key={page}
                   onClick={fnHandler.handleCloseNavMenu}
                   sx={{
-                    mt: 1,
+                    mt: 1.5,
                     color: 'black',
                     display: 'flex',
                     alignItems: 'center',
@@ -131,7 +131,7 @@ export default function Header(): JSX.Element {
                     fontWeight: 700,
                   }}
                 >
-                  {page}
+                  <Link href={`/${page}`}>{page}</Link>
                 </Button>
               ))}
             </Box>

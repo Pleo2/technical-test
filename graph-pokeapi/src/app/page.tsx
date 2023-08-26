@@ -1,11 +1,13 @@
 'use client'
+
 import Header from './Components/Header'
 import { genRandomTree } from './utils/genRandomTree'
 import useGetPoke from './hooks/useGetPoke'
 import ForceGraph2D from 'react-force-graph-2d'
+import { typesPokemon } from './utils/type'
 
 export default function Home(): JSX.Element {
-  const type = ["Fuego", "Planta", "Agua", "Volador", "Fantasma", "Normal", "Psíquico", "Tierra", "Roca", "Dragón", "Eléctrico", "Bicho", "Lucha", "Veneno"]
+  const type = typesPokemon
   const { poke, error, loading } = useGetPoke()
   const names = poke?.map(p => p.name)
   return (

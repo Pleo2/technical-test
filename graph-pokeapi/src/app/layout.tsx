@@ -16,9 +16,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/Pokebola-pokeball-png-0.png" sizes="any" />
-      </head>
       <body className={inter.className}>{children}</body>
     </html>
   )
