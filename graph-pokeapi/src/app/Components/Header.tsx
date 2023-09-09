@@ -1,5 +1,5 @@
 'use client'
-import Image from 'next/image'
+import { useState } from 'react'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
@@ -11,10 +11,15 @@ import Container from '@mui/material/Container'
 import Button from '@mui/material/Button'
 import MenuItem from '@mui/material/MenuItem'
 import useHandlerAnchor from '../hooks/useHandlerAnchor'
+<<<<<<< HEAD
 import Link from 'next/link'
 
 
 const pages = ['NAME-2D', '3D-NAME', '3D-POKEMON']
+=======
+
+const pages = ['Basic Poke Name - 2D', '3D - Poke Name', '3D-Pokemon']
+>>>>>>> parent of 973d8b1... feat(Name-2D): :sparkles: add graph NAME 2D and style changes in the header
 
 export default function Header(): JSX.Element {
   const {
@@ -23,105 +28,64 @@ export default function Header(): JSX.Element {
   } = useHandlerAnchor()
 
   return (
-    <div className='bg-red-700'>
-      <AppBar
-        position="static"
-        color="transparent"
-      >
-        <Container
-          maxWidth="md"
-          className="flex justify-center "
-        >
-          <Toolbar disableGutters>
-            <Image
-              src="/Pokebola-pokeball-png-0.png"
-              alt="logo"
-              width={'50'}
-              height={'50'}
-            ></Image>
-            <Typography
-              variant="h3"
-              noWrap
-              component="a"
-              href="/"
+    <AppBar
+      position="static"
+      color="secondary"
+    >
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <Typography
+            variant="h3"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'sans-serif',
+              fontWeight: 500,
+              letterSpacing: '.1rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            Graph-Pokemon
+          </Typography>
+
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={fnHandler.handleOpenNavMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={state.anchorElNav}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+              }}
+              open={Boolean(state.anchorElNav)}
+              onClose={fnHandler.handleCloseNavMenu}
               sx={{
-                ml: 2,
-                mr: 2,
-                display: { xs: 'none', md: 'flex' },
-                fontFamily: 'Trebuchet MS',
-                fontWeight: 700,
-                letterSpacing: '.0.5rem',
-                color: 'inherit',
-                textDecoration: 'none',
+                display: { xs: 'block', md: 'none' },
               }}
             >
-              Graph-Pokemon
-            </Typography>
-
-            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={fnHandler.handleOpenNavMenu}
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={state.anchorElNav}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
-                }}
-                open={Boolean(state.anchorElNav)}
-                onClose={fnHandler.handleCloseNavMenu}
-                sx={{
-                  display: { xs: 'block', md: 'none' },
-                }}
-              >
-                {pages.map(page => (
-                  <MenuItem
-                    key={page}
-                    onClick={fnHandler.handleCloseNavMenu}
-                  >
-                    <Typography textAlign="center">{page}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box>
-
-            <Typography
-              variant="h5"
-              noWrap
-              component="a"
-              href=""
-              sx={{
-                mr: 2,
-                display: { xs: 'flex', md: 'none' },
-                flexGrow: 1,
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-              }}
-            >
-              Graph-Pokemon
-            </Typography>
-
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               {pages.map(page => (
-                <Button
+                <MenuItem
                   key={page}
                   onClick={fnHandler.handleCloseNavMenu}
+<<<<<<< HEAD
                   sx={{
                     mt: 1.5,
                     color: 'black',
@@ -133,30 +97,67 @@ export default function Header(): JSX.Element {
                 >
                   <Link href={`/${page}`}>{page}</Link>
                 </Button>
+=======
+                >
+                  <Typography textAlign="center">{page}</Typography>
+                </MenuItem>
+>>>>>>> parent of 973d8b1... feat(Name-2D): :sparkles: add graph NAME 2D and style changes in the header
               ))}
-            </Box>
+            </Menu>
+          </Box>
+          
+          <Typography
+            variant="h5"
+            noWrap
+            component="a"
+            href=""
+            sx={{
+              mr: 2,
+              display: { xs: 'flex', md: 'none' },
+              flexGrow: 1,
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            Graph-Pokemon
+          </Typography>
 
-            <Box sx={{ flexGrow: 0 }}>
-              <Menu
-                sx={{ mt: '45px' }}
-                id="menu-appbar"
-                anchorEl={state.anchorElUser}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={Boolean(state.anchorElUser)}
-                onClose={fnHandler.handleCloseUserMenu}
-              ></Menu>
-            </Box>
-          </Toolbar>
-        </Container>
-      </AppBar>
-    </div>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            {pages.map(page => (
+              <Button
+                key={page}
+                onClick={fnHandler.handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                {page}
+              </Button>
+            ))}
+          </Box>
+
+          <Box sx={{ flexGrow: 0 }}>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={state.anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(state.anchorElUser)}
+              onClose={fnHandler.handleCloseUserMenu}
+            >
+            </Menu>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
   )
 }
