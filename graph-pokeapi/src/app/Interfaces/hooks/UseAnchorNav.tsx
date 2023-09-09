@@ -3,7 +3,7 @@ import Link from "next/link"
 export interface UseHandlerAnchor {
   fnHandler: {
     handleOpenNavMenu: (event: React.MouseEvent<HTMLElement>) => void
-    handleCloseNavMenu: (event) => {}
+    handleCloseNavMenu: (event) => { }
     handleCloseUserMenu: () => void
   }
   states: {

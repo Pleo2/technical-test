@@ -5,7 +5,6 @@ export const fetchPoke = async () => {
   for (let i = 1; i <= limit; i++) {
       const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
       const response = await res.json()
-      console.log(response)
       const pokemon = {
         name: response?.name,
         id: response?.id,

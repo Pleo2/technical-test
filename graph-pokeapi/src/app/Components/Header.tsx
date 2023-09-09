@@ -14,7 +14,7 @@ import useHandlerAnchor from '../hooks/useHandlerAnchor'
 import Link from 'next/link'
 
 
-const pages = ['NAME-2D', '3D-NAME', '3D-POKEMON']
+const pages = ['3D-NAME', '3D-POKEMON']
 
 export default function Header(): JSX.Element {
   const {
@@ -107,15 +107,22 @@ export default function Header(): JSX.Element {
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map(page => (
+              <Button
+                key={'/'}
+                onClick={fnHandler.handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <Link href={'/'}>NAME-2D</Link>
+              </Button>
+              {pages.map(page => (
               <Button
                 key={page}
                 onClick={fnHandler.handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                <Link href={`/${page}`}>{page}</Link>
               </Button>
-            ))}
+              ))}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
