@@ -11,15 +11,10 @@ import Container from '@mui/material/Container'
 import Button from '@mui/material/Button'
 import MenuItem from '@mui/material/MenuItem'
 import useHandlerAnchor from '../hooks/useHandlerAnchor'
-<<<<<<< HEAD
 import Link from 'next/link'
 
 
 const pages = ['NAME-2D', '3D-NAME', '3D-POKEMON']
-=======
-
-const pages = ['Basic Poke Name - 2D', '3D - Poke Name', '3D-Pokemon']
->>>>>>> parent of 973d8b1... feat(Name-2D): :sparkles: add graph NAME 2D and style changes in the header
 
 export default function Header(): JSX.Element {
   const {
@@ -85,23 +80,9 @@ export default function Header(): JSX.Element {
                 <MenuItem
                   key={page}
                   onClick={fnHandler.handleCloseNavMenu}
-<<<<<<< HEAD
-                  sx={{
-                    mt: 1.5,
-                    color: 'black',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontWeight: 700,
-                  }}
-                >
-                  <Link href={`/${page}`}>{page}</Link>
-                </Button>
-=======
                 >
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
->>>>>>> parent of 973d8b1... feat(Name-2D): :sparkles: add graph NAME 2D and style changes in the header
               ))}
             </Menu>
           </Box>

@@ -1,9 +1,9 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { fetchPoke } from '../../utils/fetch'
-import { type PokeState } from '../../utils/types'
+import { fetchPoke } from '../utils/fetch'
+import { type PokeState } from '../utils/types'
 
-const initialData = [{ id: 0, name: '', img: '' }]
+const initialData = [{ id: 0, name: '', img: '', type: '' }]
 
 export default function useGetPoke() {
   const [poke, setPoke] = useState<PokeState[]>(initialData)
@@ -14,6 +14,7 @@ export default function useGetPoke() {
     setLoading(true)
     fetchPoke()
       .then((res):void => {
+        console.log(res)
         setPoke(res)
       })
       .catch(() => setError(true))
