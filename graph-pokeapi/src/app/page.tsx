@@ -1,24 +1,23 @@
 'use client'
-import Header from './Components/Header'
-import { genRandomTree } from './utils/genRandomTree'
-import useGetPoke from './hooks/useGetPoke'
+import { useContext } from 'react'
 import ForceGraph2D from 'react-force-graph-2d'
-import { CircularProgress } from '@mui/material'
+import { LoadingSpiner } from './Components/Loading-spiner'
+import { ErrorMessage } from './Components/Error-message'
+import { TreeContext } from './Contexts/PokeDataContext'
 
 export default function Home(): JSX.Element {
-  const { poke, error, loading } = useGetPoke()
-
+  const { error, loading, genData  } = useContext(TreeContext)
   return (
     <>
-      <Header />
       <main className="flex flex-col items-center justify-center bg-[#d7dcdd]">
-        {loading && <div className='mt-96 bg-[#d7dcdd]'><CircularProgress color="secondary"/></div>}
-        {poke.length > 0  && !loading && (
+        {error && !loading && <ErrorMessage/>}
+        {loading && <LoadingSpiner />}
+        {genData.nodes.length > 2 && !loading && (
           <ForceGraph2D
             width={screen.width}
             height={screen.height - screen.height * 0.2}
             backgroundColor="#d7dcdd"
-            graphData={genRandomTree({ reverse: false, poke })}
+            graphData={genData}
             nodeAutoColorBy="group"
             nodeCanvasObject={(node, ctx, globalScale) => {
               const label = node.name
@@ -31,8 +30,8 @@ export default function Home(): JSX.Element {
 
               ctx.fillStyle = 'rgba(255, 255, 255, 0.3)'
               ctx.fillRect(
-                node.x - bckgDimensions[0] / 2,
-                node.y - bckgDimensions[1] / 2,
+                node?.x - bckgDimensions[0] / 2,
+                node?.y - bckgDimensions[1] / 2,
                 ...bckgDimensions,
               )
 

@@ -9,7 +9,6 @@ export default function useGetPoke() {
   const [poke, setPoke] = useState<PokeState[]>(initialData)
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<boolean>(false)
-  console.table(poke)
   useEffect(() => {
     setLoading(true)
     fetchPoke()
